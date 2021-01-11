@@ -38,7 +38,7 @@ Each experience is stored in a replay buffer as the agent interacts with the env
 
 Also, experience replay improves learning through repetition. By doing multiple passes over the data, our agent has multiple opportunities to learn from a single experience tuple. This is particularly useful for state-action pairs that occur infrequently within the environment.
 
-The implementation of the replay buffer can be found in the agent.py file of the source code.
+The implementation of the replay buffer can be found in the dqn_agent.py file of the source code.
 
 2) Deep Q-Network (DQN) + Experience Replay + Prioritized Experience Replay
 Experience replay lets online reinforcement learning agents remember and reuse experiences from the past. [paper](https://arxiv.org/abs/1511.05952)
