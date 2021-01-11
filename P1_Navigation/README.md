@@ -49,7 +49,7 @@ Performance is measured by the fewest number of episodes required to solve the e
 ![alt text](images/Navigation.png)
 
 With DQN+RB I was able to solve the game in 165 episodes:
-![alt text](images/Results.png)
+![alt text](images/results.png)
 
 # Future Improvements
 
