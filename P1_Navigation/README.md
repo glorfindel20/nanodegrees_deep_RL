@@ -46,10 +46,10 @@ Experience replay lets online reinforcement learning agents remember and reuse e
 # Results
 
 Performance is measured by the fewest number of episodes required to solve the environment.
-[here](images/Navigation.png)
+![alt text](images/Navigation.png)
 
 With DQN+RB I was able to solve the game in 165 episodes:
-[here](images/Results.png)
+![alt text](images/Results.png)
 
 # Future Improvements
 
