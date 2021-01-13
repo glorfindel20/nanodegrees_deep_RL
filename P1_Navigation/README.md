@@ -34,6 +34,21 @@ Download the environment from one of the links below. You need only select the e
 
 Also, the original Udacity repo for this project can be found [here](https://github.com/udacity/deep-reinforcement-learning/tree/master/p1_navigation).
 
+Assuming that you have already installed either [Miniconda or Anaconda](https://www.anaconda.com/products/individual).
+Assuming that you have already installed [Git](https://git-scm.com/downloads) on your pc.
+
+Clone this Repo:
+<pre>git clone https://github.com/glorfindel20/nanodegrees_deep_RL.git</pre>.
+
+Create new conda env:
+<pre> conda create --name navigation python=3.6 </pre>
+<pre> conda activate navigation </pre>
+
+Install packages:
+<pre> cd nanodegrees_deep_RL/P1_Navigation/python </pre>
+<pre> pip install .</pre>
+
+Or follow the instructions in the [DRLND GitHub repository](https://github.com/udacity/deep-reinforcement-learning#dependencies) to set up your Python environment. 
 
 Follow the instructions in Navigation.ipynb to get started with training your own agent!
 
