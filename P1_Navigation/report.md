@@ -36,6 +36,21 @@ I test different values of the 𝛆-greedy init values, starting from 0.99 to 0.
 You can find the 𝛆-greedy logic implemented as part of the Agent.act() method in dqn_agent.py of the source code.
 Also different fc1_units and fc2_units was tested. 
 
+Other hyperparameter values:
+
+<pre>
+BUFFER_SIZE = int(1e5)  # replay buffer size
+BATCH_SIZE = 64         # minibatch size
+GAMMA = 0.99            # discount factor
+TAU = 1e-3              # for soft update of target parameters
+LR = 5e-4               # learning rate 
+UPDATE_EVERY = 4        # how often to update the network
+</pre>
+
+
+The weights for the model with DQN + ER are saved in saved_memory/checkpoint.pth.
+The weights for the model with DQN + ER + PER are saved in saved_memory/checkpoint_PER.pth.
+
 # Future Improvements
 
 1) Test the Rainbow Algorithm: [here](https://arxiv.org/abs/1710.02298)
