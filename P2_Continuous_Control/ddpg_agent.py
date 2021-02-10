@@ -65,7 +65,7 @@ class Agent():
         self.memory.add(state, action, reward, next_state, done)
 
         # Learn, if enough samples are available in memory
-        if len(self.memory) > BATCH_SIZE  and timestamp % LEARN_EVERY == 0::
+        if len(self.memory) > BATCH_SIZE  and timestamp % LEARN_EVERY == 0:
             experiences = self.memory.sample()
             self.learn(experiences, GAMMA)
 
