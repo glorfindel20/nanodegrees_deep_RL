@@ -35,7 +35,7 @@ I have tried many configurations:
   - BATCH_SIZE: start from 128, try with 256 and in the end used 64
 
 The final used hyperparameters:
-
+<pre>
 BUFFER_SIZE = int(1e6)  # replay buffer size
 BATCH_SIZE = 64      # minibatch size
 GAMMA = 0.99            # discount factor
@@ -47,7 +47,7 @@ WEIGHT_DECAY = 0        # L2 weight decay
 GRAD_CLIPPING = 1.0     # Gradient Clipping
 EPSILON = 1.0     # for epsilon in the noise process (act step)
 EPSILON_DECAY = 1e-6
-
+</pre>
 
 ## Result
 
