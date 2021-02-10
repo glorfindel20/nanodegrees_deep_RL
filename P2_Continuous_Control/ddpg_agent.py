@@ -20,7 +20,10 @@ WEIGHT_DECAY = 0        # L2 weight decay
 GRAD_CLIPPING = 1.0     # Gradient Clipping
 EPSILON = 1.0     # for epsilon in the noise process (act step)
 EPSILON_DECAY = 1e-6
-LEARN_EVERY = 20        # Update the networks 10 times after every 20 timesteps
+LEARN_EVERY = 1        # Update the networks 10 times after every 20 timesteps
+LEARN_NUMBER = 1 
+
+NOISE_DECAY = 0.999
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -39,9 +42,10 @@ class Agent():
         self.state_size = state_size
         self.action_size = action_size
         self.seed = random.seed(random_seed)
-    
-        self.epsilon = EPSILON
         
+        self.noise_decay = NOISE_DECAY
+        self.epsilon = EPSILON
+        print("Using: ", device)
         # Actor Network (w/ Target Network)
         self.actor_local = Actor(state_size, action_size, random_seed).to(device)
         self.actor_target = Actor(state_size, action_size, random_seed).to(device)
@@ -51,7 +55,11 @@ class Agent():
         self.critic_local = Critic(state_size, action_size, random_seed).to(device)
         self.critic_target = Critic(state_size, action_size, random_seed).to(device)
         self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LR_CRITIC, weight_decay=WEIGHT_DECAY)
-
+        
+        # Initialize target networks weights with the local networks ones
+        self.soft_update(self.actor_local, self.actor_target, 1)
+        self.soft_update(self.critic_local, self.critic_target, 1)
+        
         # Noise process
         self.noise = OUNoise(action_size, random_seed)
 
@@ -65,9 +73,10 @@ class Agent():
         self.memory.add(state, action, reward, next_state, done)
 
         # Learn, if enough samples are available in memory
-        if len(self.memory) > BATCH_SIZE  and timestamp % LEARN_EVERY == 0::
-            experiences = self.memory.sample()
-            self.learn(experiences, GAMMA)
+        if len(self.memory) > BATCH_SIZE  and timestamp % LEARN_EVERY == 0:
+            for _ in range(LEARN_NUMBER):
+                experiences = self.memory.sample()
+                self.learn(experiences, GAMMA)
 
     def act(self, state, add_noise=True):
         """Returns actions for given state as per current policy."""
@@ -76,10 +85,13 @@ class Agent():
         with torch.no_grad():
             action = self.actor_local(state).cpu().data.numpy()
         self.actor_local.train()
+        
         if add_noise:
-            action += self.noise.sample()
-        action = (action + 1.0) / 2.0
-        return np.clip(action, 0, 1)
+            action += self.noise.sample() * self.noise_decay
+            # Decay the noise process along the time
+            self.noise_decay *= self.noise_decay
+            
+        return np.clip(action, -1, 1)
 
 
     def reset(self):
@@ -118,8 +130,8 @@ class Agent():
         
         
         # Clipping gradients
-        #if GRAD_CLIPPING>0:
-        #    torch.nn.utils.clip_grad_norm_(self.critic_local.parameters(), GRAD_CLIPPING)
+        if GRAD_CLIPPING>0:
+            torch.nn.utils.clip_grad_norm_(self.critic_local.parameters(), GRAD_CLIPPING)
         self.critic_optimizer.step()
 
         # ---------------------------- update actor ---------------------------- #
