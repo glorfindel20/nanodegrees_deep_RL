@@ -137,7 +137,7 @@ class Agent():
         #if len(self.memory) > BATCH_SIZE:
         if self.memory.tree.write > BATCH_SIZE:
         
-            experiences, idxs, is_weight = self.memory.sample()
+            experiences, idxs, is_weight = self.memory.sample(BATCH_SIZE)
             self.learn(experiences, GAMMA, idxs, is_weight)
 
     def act(self, state, add_noise=True):
@@ -328,14 +328,23 @@ class Memory:  # stored as ( s, a, r, s_ ) in SumTree
         is_weight = np.power(self.tree.n_entries * sampling_probabilities, -self.beta)
         is_weight /= is_weight.max()
         
-        experiences = np.array(batch).transpose()
+        '''experiences = np.array(batch).transpose()
         
         states = torch.from_numpy(np.vstack([e[0] for e in experiences if e is not None])).float().to(device)
         actions = torch.from_numpy(np.vstack([e[1] for e in experiences if e is not None])).float().to(device)
         rewards = torch.from_numpy(np.vstack([e[2] for e in experiences if e is not None])).float().to(device)
         next_states = torch.from_numpy(np.vstack([e[3] for e in experiences if e is not None])).float().to(device)
         dones = torch.from_numpy(np.vstack([e[4] for e in experiences if e is not None]).astype(np.uint8)).float().to(device)
+        '''
+        mini_batch = np.array(batch).transpose()
 
+        states = np.vstack(mini_batch[0])
+        actions = list(mini_batch[1])
+        rewards = list(mini_batch[2])
+        next_states = np.vstack(mini_batch[3])
+        dones = mini_batch[4]
+        
+        
         return (states, actions, rewards, next_states, dones) , idxs, is_weight
 
     def update(self, idx, error):
