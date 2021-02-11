@@ -1,0 +1,19 @@
+### TYPE ###
+*.sql.design
+*.asv
+*.pyc
+*.jpg
+*.png
+*.csv
+*.mat
+*.pkl
+*.pdf
+*.xlsx
+*.spydata
+resoconto*
+*.env
+*.ipynb_checkpoints
+
+
+### EXCEPTIONS ###
+!nanodegrees_deep_RL/P2_Continuous_Control/data/*
