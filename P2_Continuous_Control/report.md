@@ -49,14 +49,22 @@ WEIGHT_DECAY = 0        # L2 weight decay
 GRAD_CLIPPING = 1.0     # Gradient Clipping
 EPSILON = 1.0     # for epsilon in the noise process (act step)
 EPSILON_DECAY = 1e-6
-LEARN_EVERY = 10        # Update the networks 10 times after every 20 timesteps
+LEARN_EVERY = 10        # Update the networks after every 10 timesteps
 LEARN_NUMBER = 1 
 
 NOISE_DECAY = 0.999
 </pre>
 
 ## Result
+After several attempts, and several hours of calculation, I was able to find the best configuration, which presented optimal results.
+The best config, was found using max_t=2000 and using LEARN_EVERY=10, training networks after every 10 timestamp.
+This solution has allowed us to significantly improve computational times and performance! With more time I would be curious to try with the PER (Prioritized Experience Replay) with these config.
 
+With this configuration I was able to solve the problem with only 35 episodes.
+![alt text](/results.png)
+
+All agents have successfully achieved the result:
+![alt_text](/multiple_result.png)
 
 ## Ideas for Future Work
 
