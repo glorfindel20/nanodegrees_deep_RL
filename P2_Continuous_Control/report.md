@@ -61,7 +61,7 @@ The best config, was found using max_t=2000 and using LEARN_EVERY=10, training n
 This solution has allowed us to significantly improve computational times and performance! With more time I would be curious to try with the PER (Prioritized Experience Replay) with these config.
 
 With this configuration I was able to solve the problem with only 35 episodes.
-![alt text](/results.png)
+![alt text](results.png)
 
 All agents have successfully achieved the result:
 ![alt_text](/multiple_result.png)
