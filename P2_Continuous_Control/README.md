@@ -33,8 +33,8 @@ but you can train in your environment following next procedures if you want.
 
 2. Clone this repository, change directory, and activate *drlnd* environment.
 ``` bash
-git clone https://github.com/tnakae/Udacity-DeepRL-p2-Continuous
-chdir Udacity-DeepRL-p2-Continuous
+git clone https://github.com/glorfindel20/nanodegrees_deep_RL.git
+chdir P2_Continuous_Control
 source activate drlnd
 ```
 
