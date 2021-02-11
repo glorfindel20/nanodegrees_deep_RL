@@ -20,7 +20,7 @@ WEIGHT_DECAY = 0        # L2 weight decay
 GRAD_CLIPPING = 1.0     # Gradient Clipping
 EPSILON = 1.0     # for epsilon in the noise process (act step)
 EPSILON_DECAY = 1e-6
-LEARN_EVERY = 1        # Update the networks 10 times after every 20 timesteps
+LEARN_EVERY = 10        # Update the networks 10 times after every 20 timesteps
 LEARN_NUMBER = 1 
 
 NOISE_DECAY = 0.999
