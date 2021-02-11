@@ -23,7 +23,9 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 
 # Evaluate State & Action Space
+The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm.
 
+Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
 # Getting Started
 In this repository, there is best model already trained for enough steps,
