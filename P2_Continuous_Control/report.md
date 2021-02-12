@@ -1,24 +1,41 @@
 # nanodegrees_deep_RL
 # Project 2: Continuous Control
 
+## In my implementation I have chosen to solve the Second version of the environment (20 Agents) using DDPG algorithm.
+
+
 ### Algorithm
 In order to solve this challenge, I have explored and implemented the Deep Deterministic Policy Gradient algorithm (DDPG), as described in this paper: [Continuous control with deep reinforcement learning](https://arxiv.org/abs/1509.02971).
+
+Deep Deterministic Policy Gradient (DDPG) is an algorithm which concurrently learns a Q-function and a policy. It uses off-policy data and the Bellman equation to learn the Q-function, and uses the Q-function to learn the policy.
 
 # Included in this repository
 The code used to create and train the Agent
 <pre>
-Continuous_Control.ipynb
-ddpg_agent.py 
-ddpg_agent_PER_slow.py
-ddpg_agent_PER.py
-model.py
-The trained model
-checkpoint_ddpg.pt 
-A file describing all the packages required to set up the environment
-environment.yml
-A Report.md file describing the development process and the learning algorithm, along with ideas for future work
-This README.md file
+1) Continuous_Control.ipynb: In this Jupyter Notebook file, you can train the agent and plot results. 
+2) ddpg_agent.py: implement the DDPG agent, a Noise (Ornstein-Uhlenbeck process) and a Replay Buffer class.
+3) model.py: Actor & Critic Networks.
+4) checkpoint_ddpg.pt : The trained model
+5) environment.yml: A file describing all the packages required to set up the environment
+6) A Report.md file describing the development process and the learning algorithm, along with ideas for future work
+7) This README.md file
 </pre>
+
+## Network
+
+In model.py code I implement the Actor and the Critic class. Both Actor and Critic class implement a Target and a Local Neural Network for training.
+
+<pre>
+Actor network built: [Linear(in_features=33, out_features=400, bias=True), Linear(in_features=400, out_features=300, bias=True), Linear(in_features=300, out_features=4, bias=True)]
+Actor network built: [Linear(in_features=33, out_features=400, bias=True), Linear(in_features=400, out_features=300, bias=True), Linear(in_features=300, out_features=4, bias=True)]
+Critic network built: [Linear(in_features=33, out_features=400, bias=True), Linear(in_features=404, out_features=300, bias=True), Linear(in_features=300, out_features=1, bias=True)]
+Critic network built: [Linear(in_features=33, out_features=400, bias=True), Linear(in_features=404, out_features=300, bias=True), Linear(in_features=300, out_features=1, bias=True)]
+</pre>
+
+fc_layers for the actor network: FC1: 400 nodes, FC2: 300 nodes.
+fc_layers for the critic network: FC1: 400 nodes, FC2: 300 nodes.
+
+
 ### Development
 
 For this project I tried different configurations before finding the optimal one.
