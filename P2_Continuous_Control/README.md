@@ -8,6 +8,26 @@ For this project, we will provide you with two separate versions of the Unity en
 The first version contains a single agent.
 The second version contains 20 identical agents, each with its own copy of the environment.
 
+#  Environment details
+The environment is based on [Unity ML-agents](https://github.com/Unity-Technologies/ml-agents). Unity ML-Agents is an open-source Unity plugin that enables games and simulations to serve as environments for training intelligent agents.
+
+The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
+
+Set-up: Double-jointed arm which can move to target locations.
+Goal: The agents must move it's hand to the goal location, and keep it there.
+Agents: The environment contains 10 agent with same Behavior Parameters. (The provided Udacity agent versions are Single Agent or 20 Agents.)
+Agent Reward Function (independent):
++0.1 Each step agent's hand is in goal location.
+Behavior Parameters:
+Vector Observation space: 26 variables corresponding to position, rotation, velocity, and angular velocities of the two arm Rigidbodies.
+Vector Action space: (Continuous) Size of 4, corresponding to torque applicable to two joints.
+Visual Observations: None.
+Benchmark Mean Reward: 30
+For this project, Udacity provides two separate versions of the Unity environment:
+
+The first version contains a single agent.
+The second version contains 20 identical agents, each with its own copy of the environment.
+
 # Goal
 1) Option 1: Solve the First Version
 The task is episodic, and in order to solve the environment, your agent must get an average score of +30 over 100 consecutive episodes.
