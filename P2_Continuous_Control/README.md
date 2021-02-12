@@ -39,7 +39,7 @@ The barrier for solving the second version of the environment is slightly differ
 *  This yields an average score for each episode (where the average is over all 20 agents).
 As an example, consider the plot below, where we have plotted the average score (over all 20 agents) obtained with each episode.
 
-The environment is considered solved, when the average (over 100 episodes) of those average scores is at least +30. In the case of the plot above, the environment was solved at episode 63, since the average of the average scores from episodes 64 to 163 (inclusive) was greater than +30.
+The environment is considered solved, when the average (over 100 episodes) of those average scores is at least +30. 
 
 
 # Evaluate State & Action Space
