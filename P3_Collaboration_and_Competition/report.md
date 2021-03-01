@@ -16,7 +16,7 @@ The code used to create and train the Agent
 2) Tennis_500.ipnb: train the algos for 500 episodes.
 3) ddpg_agent.py: implement the DDPG agent, a Noise (Ornstein-Uhlenbeck process) and a Replay Buffer class.
 4) model.py: Actor & Critic Networks.
-5) checkpoint_ddpg.pt : The trained model
+5) checkpoint_ddpg_solved.pt : The trained model
 6) checkpoint_ddpg_2.pt : model trainde for 500 episodes.
 7) A Report.md file describing the development process and the learning algorithm, along with ideas for future work
 8) This README.md file
@@ -42,7 +42,7 @@ There was no need to use so many neurons. With 128-64 configuration the training
 
 I have tried many configurations:
   - Network size: i tried with [400,300] , but in the end i used two hidden layers, the first with 128 nodes and the second with 64 nodes, for both Actor and Critic networks.
-  - BUFFER_SIZE: I start from 1e6 and endig with 1e5.
+  - BUFFER_SIZE: I start from 1e5 and endig with 1e6.
   - BATCH_SIZE: used 128
   - LEARN_EVERY: learn every 10 step. Try with 1,5,20, but in the end used 10.
   
@@ -69,11 +69,11 @@ NOISE_DECAY = 0.999
 ## Result
 
 The best config, was found using max_t=2000 and using LEARN_EVERY=10, training networks after every 10 timestamp.
-This solution has allowed us to significantly improve computational times and performance! In 11m16s the agent was able to solve the enviroment running on my PC with only CPU.
+This solution has allowed us to significantly improve computational times and performance! In 7m02s the agent was able to solve the enviroment running on my PC with only CPU.
 
-With this configuration I was able to solve the problem with only 131 episodes.
+With this configuration I was able to solve the problem with only 849 episodes.
 ![alt text](./images/solved_env.png)
-Tthe results after 500 episodes :
+The results after 849 episodes :
 ![alt_text](./images/solved_500.png)
 
 ## Ideas for Future Work
