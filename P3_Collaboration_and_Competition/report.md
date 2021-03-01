@@ -71,7 +71,7 @@ NOISE_DECAY = 0.999
 The best config, was found using max_t=2000 and using LEARN_EVERY=10, training networks after every 10 timestamp.
 This solution has allowed us to significantly improve computational times and performance! In 11m16s the agent was able to solve the enviroment running on my PC with only CPU.
 
-With this configuration I was able to solve the problem with only 35 episodes.
+With this configuration I was able to solve the problem with only 131 episodes.
 ![alt text](./images/solved_env.png)
 Tthe results after 500 episodes :
 ![alt_text](./images/solved_500.png)
