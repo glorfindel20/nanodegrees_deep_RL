@@ -9,11 +9,13 @@ In order to solve this challenge, I have explored and implemented the Deep Deter
 
 Deep Deterministic Policy Gradient (DDPG) is an algorithm which concurrently learns a Q-function and a policy. It uses off-policy data and the Bellman equation to learn the Q-function, and uses the Q-function to learn the policy.
 
+In this DDPG model I use PER - Prioritized Experience Replay, to be able to solve the environment more fast.
+
 # Included in this repository
 The code used to create and train the Agent
 <pre>
 1) Tennis.ipynb: In this Jupyter Notebook file, you can train the agent and plot results. 
-2) Tennis_500.ipnb: train the algos for 500 episodes.
+2) Tennis_all.ipnb: notebook with more plot.
 3) ddpg_agent.py: implement the DDPG agent, a Noise (Ornstein-Uhlenbeck process) and a Replay Buffer class.
 4) model.py: Actor & Critic Networks.
 5) checkpoint_ddpg_solved.pt : The trained model
@@ -73,10 +75,9 @@ This solution has allowed us to significantly improve computational times and pe
 
 With this configuration I was able to solve the problem with only 849 episodes.
 ![alt text](./images/solved_env.png)
-The results after 849 episodes :
+The results after 1723 episodes with results of single agents:
 ![alt_text](./images/solved_500.png)
 
 ## Ideas for Future Work
 
- 1) use succesfully PER - Prioritized Experience Replay.
- 2) build a model using Alphazero or Muzero Algos.
+ 1) build a model using Alphazero or Muzero Algos.
